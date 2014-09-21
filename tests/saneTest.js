@@ -7,17 +7,17 @@ var fsDif = new Differ();
 fsDif.beginWatch(dir);
 
 fsDif.on('created', function(data){
-  console.log(data);
+  console.log('created', data);
 });
 
-fsDif.on('rename', function(data){
-  console.log(data);
+fsDif.on('renamed', function(data){
+  console.log('renamed',data);
 });
 
 fsDif.on('moved', function(data){
-  console.log(data);
+  console.log('moved',data);
 });
 
 fsDif.on('removed', function(data){
-  console.log(data);
+  console.log('removed',data);
 });
