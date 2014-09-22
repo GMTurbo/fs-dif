@@ -1,6 +1,7 @@
 var Differ = require('../lib/fs-dif');
 
-var dir = '/Users/gabrieltesta/Downloads/sync/';
+//'/Users/gabrieltesta/Downloads/sync/'
+var dir = 'C:/Users/gtesta/Downloads/syncTest';
 
 var fsDif = new Differ();
 
