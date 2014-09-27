@@ -3,7 +3,7 @@ var Differ = require('../lib/fs-dif');
 var osx ='/Users/gabrieltesta/Downloads/sync/',
   win32 = 'C:/Users/gtesta/Downloads/syncTest';
 
-var dir = win32;
+var dir = osx;
 
 var fsDif = new Differ({dirToWatch: dir});
 
@@ -18,14 +18,14 @@ fsDif.on('ready', function(){
   });
 
   fsDif.on('renamed', function(data){
-    console.log('renamed',data);
+    console.log('renamed', data);
   });
 
   fsDif.on('moved', function(data){
-    console.log('moved',data);
+    console.log('moved', data);
   });
 
   fsDif.on('removed', function(data){
-    console.log('removed',data);
+    console.log('removed', data);
   });
 });
