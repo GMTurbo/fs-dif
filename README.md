@@ -19,44 +19,52 @@ fsDif.on('ready', function(){
 
   fsDif.beginWatch();
 
-  fsDif.on('created', function(err, data){
+  fsDif.on('exists', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('created', data);
+    console.log('exists', fileData);
   });
 
-  fsDif.on('changed', function(err, data){
+  fsDif.on('created', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('changed', data);
+    console.log('created', fileData);
   });
 
-  fsDif.on('renamed', function(err, data){
+  fsDif.on('changed', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('renamed', data);
+    console.log('changed', fileData);
   });
 
-  fsDif.on('moved', function(err, data){
+  fsDif.on('renamed', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('moved', data);
+    console.log('renamed', fileData);
   });
 
-  fsDif.on('removed', function(err, data){
+  fsDif.on('moved', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('removed', data);
+    console.log('moved', fileData);
+  });
+
+  fsDif.on('removed', function(err, fileData){
+    if(err) {
+      console.error(err);
+      return;
+    }
+    console.log('removed', fileData);
   });
 });
 ```
@@ -85,44 +93,44 @@ fsDif.on('ready', function(){
 
   fsDif.beginWatch();
 
-  fsDif.on('created', function(err, data){
+  fsDif.on('created', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('created', data);
+    console.log('created', fileData);
   });
 
-  fsDif.on('changed', function(err, data){
+  fsDif.on('changed', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('changed', data);
+    console.log('changed', fileData);
   });
 
-  fsDif.on('renamed', function(err, data){
+  fsDif.on('renamed', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('renamed', data);
+    console.log('renamed', fileData);
   });
 
-  fsDif.on('moved', function(err, data){
+  fsDif.on('moved', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('moved', data);
+    console.log('moved', fileData);
   });
 
-  fsDif.on('removed', function(err, data){
+  fsDif.on('removed', function(err, fileData){
     if(err) {
       console.error(err);
       return;
     }
-    console.log('removed', data);
+    console.log('removed', fileData);
   });
 });
 ```
@@ -132,16 +140,25 @@ fsDif.on('error', function(err){
   console.error(err);
 });
 ```
+
+###exists - fires during module startup
+On module startup, every file that is within the watch folder has to be enumerated.
+Once a file is enumerated, the exists event fires.
+```javascript
+fsDif.on('exists', function(err, fileData){
+  console.error(err);
+});
+```
 #File System Events
 
 ###created:
 ```javascript
-fsDif.on('created', function(err, data){
-  console.log('created', data);
+fsDif.on('created', function(err, fileData){
+  console.log('created', fileData);
 });
 
 //data callback structure
-data = {
+fileData = {
   fileName: 'C:\\Users\\person\\Downloads\\master\\jpeg.jpg',
   size: 663260, // file size in bytes
   stale: false, //if file is valid or stale
@@ -150,12 +167,12 @@ data = {
 ```
 ###changed:
 ```javascript
-fsDif.on('changed', function(err, data){
-  console.log('changed', data);
+fsDif.on('changed', function(err, fileData){
+  console.log('changed', fileData);
 });
 
-//data callback structure
-data = {
+//fileData callback structure
+fileData = {
   fileName: 'C:\\Users\\person\\Downloads\\master\\jpeg.jpg',
   size: 663260, // file size in bytes
   stale: false, //if file is valid or stale
@@ -164,12 +181,12 @@ data = {
 ```
 ###renamed:
 ```javascript
-fsDif.on('renamed', function(err, data){
-  console.log('renamed', data);
+fsDif.on('renamed', function(err, fileData){
+  console.log('renamed', fileData);
 });
 
-//data callback structure
-data = {
+//fileData callback structure
+fileData = {
   fileName: 'C:\\Users\\person\\Downloads\\master\\jpeg1.jpg',
   size: 663260, // file size in bytes
   stale: false, //if file is valid or stale
@@ -180,12 +197,12 @@ data = {
 ```
 ###moved:
 ```javascript
-fsDif.on('moved', function(err, data){
-  console.log('moved', data);
+fsDif.on('moved', function(err, fileData){
+  console.log('moved', fileData);
 });
 
-//data callback structure
-data = {
+//fileData callback structure
+fileData = {
   fileName: 'C:\\Users\\person\\Downloads\\master1\\jpeg1.jpg',
   size: 663260, // file size in bytes
   stale: false, //if file is valid or stale
@@ -197,12 +214,12 @@ data = {
 #####Note: *removed events are fired when the file system is idle. So, these events will fire in batches.*
 
 ```javascript
-fsDif.on('removed', function(data){
-  console.log('removed', data);
+fsDif.on('removed', function(fileData){
+  console.log('removed', fileData);
 });
 
-//data callback structure
-data = {
+//fileData callback structure
+fileData = {
   fileName: 'C:\\Users\\person\\Downloads\\master\\jpeg.jpg',
   size: 663260, // file size in bytes
   stale: true, //if file is valid or stale
