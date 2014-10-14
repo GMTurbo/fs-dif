@@ -19,19 +19,43 @@ fsDif.on('ready', function(){
 
   fsDif.beginWatch();
 
-  fsDif.on('created', function(data){
+  fsDif.on('created', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('created', data);
   });
 
-  fsDif.on('renamed', function(data){
+  fsDif.on('changed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
+    console.log('changed', data);
+  });
+
+  fsDif.on('renamed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('renamed', data);
   });
 
-  fsDif.on('moved', function(data){
+  fsDif.on('moved', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('moved', data);
   });
 
-  fsDif.on('removed', function(data){
+  fsDif.on('removed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('removed', data);
   });
 });
@@ -61,19 +85,43 @@ fsDif.on('ready', function(){
 
   fsDif.beginWatch();
 
-  fsDif.on('created', function(data){
+  fsDif.on('created', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('created', data);
   });
 
-  fsDif.on('renamed', function(data){
+  fsDif.on('changed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
+    console.log('changed', data);
+  });
+
+  fsDif.on('renamed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('renamed', data);
   });
 
-  fsDif.on('moved', function(data){
+  fsDif.on('moved', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('moved', data);
   });
 
-  fsDif.on('removed', function(data){
+  fsDif.on('removed', function(err, data){
+    if(err) {
+      console.error(err);
+      return;
+    }
     console.log('removed', data);
   });
 });
@@ -98,6 +146,20 @@ data = {
   size: 663260, // file size in bytes
   stale: false, //if file is valid or stale
   hash: 2762316245
+}
+```
+###changed:
+```javascript
+fsDif.on('changed', function(err, data){
+  console.log('changed', data);
+});
+
+//data callback structure
+data = {
+  fileName: 'C:\\Users\\person\\Downloads\\master\\jpeg.jpg',
+  size: 663260, // file size in bytes
+  stale: false, //if file is valid or stale
+  hash: 2762326345 // new hash
 }
 ```
 ###renamed:
