@@ -1,7 +1,7 @@
 var Differ = require('../lib/fs-dif');
 
-var osx ='/Users/gabrieltesta/Downloads/sync/',
-  win32 = 'C:/Users/gtesta/Downloads/syncTest';
+var osx ='/Users/user/Downloads/sync/',
+  win32 = 'C:/Users/user/Downloads/syncTest';
 
 var dir = win32;
 
