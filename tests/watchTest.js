@@ -5,7 +5,10 @@ var osx ='/Users/gabrieltesta/Downloads/sync/',
 
 var dir = win32;
 
-var fsDif = new Differ({dirToWatch: dir});
+var fsDif = new Differ({
+  dirToWatch: dir, //REQUIRED: directory to watch
+  debugOutput: true //turn on verbose output logging
+  });
 
 fsDif.on('ready', function(){
 
