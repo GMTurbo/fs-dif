@@ -132,7 +132,7 @@ data = {
 }
 ```
 ###removed:
-#####*Note: removed events are fired when the file system is idol. So, these events will fire in batches.
+#####Note: *removed events are fired when the file system is idol. So, these events will fire in batches.*
 
 ```javascript
 fsDif.on('removed', function(data){
