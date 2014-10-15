@@ -1,5 +1,5 @@
-#Fs-Dif
-![alt-text](http://imageserver.moviepilot.com/watcher-what-do-you-guys-think-is-stan-lee-the-watcher.jpeg)
+#Fs-Dif - Node.js File System Watcher
+![watcher](http://imageserver.moviepilot.com/watcher-what-do-you-guys-think-is-stan-lee-the-watcher.jpeg)
 
 #Details
 A node.js filesystem watcher module that fires reliable renamed, moved, created and removed events!
