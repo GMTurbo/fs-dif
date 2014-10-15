@@ -14,8 +14,9 @@ var Differ = require('fs-dif');
 var fsDif = new Differ({
       dirToWatch: master,
       debugOutput: false,
-      directoryFilter: ['!*modules', "!.git"],
-      fileFilter: ['!*.DS_Store']
+      directoryFilter: ['!*modules'],
+      fileFilter: ['!*.png'],
+      ignoreDotFiles: true
     });
 
 fsDif.on('ready', function(){
@@ -80,10 +81,11 @@ var Differ = require('fs-dif');
 ###Constructor
 ```javascript
 var fsDif = new Differ({
-      dirToWatch: master, //REQUIRED: directory to watch
-      debugOutput: false, //turn on verbose output logging
-      directoryFilter: ['!*modules', "!.git"],
-      fileFilter: ['!*.DS_Store']
+      dirToWatch: master,
+      debugOutput: false,
+      directoryFilter: ['!*modules'],
+      fileFilter: ['!*.png'],
+      ignoreDotFiles: true //ignore .git or .DS_Store or anything with leading .
     });
 ```
 ###[Filter Syntax](https://github.com/thlorenz/readdirp#filters)
