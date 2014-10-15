@@ -1,6 +1,6 @@
 {
   "name": "fs-dif",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "a module that lives on top of a fs module to detect file rename, move, create and delete.",
   "main": "./lib/fs-dif.js",
   "directories": {
