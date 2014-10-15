@@ -5,9 +5,13 @@ var osx ='/Users/user/Downloads/sync/',
 
 var dir = win32;
 
+//https://github.com/thlorenz/readdirp#filters
+
 var fsDif = new Differ({
   dirToWatch: dir, //REQUIRED: directory to watch
-  debugOutput: true //turn on verbose output logging
+  debugOutput: true, //turn on verbose output logging,
+  directoryFilter: ['!*modules'],
+  fileFilter: ['!*.DS_Store']
   });
 
 fsDif.on('ready', function(){

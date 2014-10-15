@@ -11,7 +11,12 @@ Watcher uses full recursion, so all sub directories will be watched.
 
 var Differ = require('fs-dif');
 
-var fsDif = new Differ({dirToWatch: dir});
+var fsDif = new Differ({
+      dirToWatch: master,
+      debugOutput: false,
+      directoryFilter: ['!*modules', "!.git"],
+      fileFilter: ['!*.DS_Store']
+    });
 
 fsDif.on('ready', function(){
 
@@ -75,10 +80,13 @@ var Differ = require('fs-dif');
 ###Constructor
 ```javascript
 var fsDif = new Differ({
-  dirToWatch: dir, //REQUIRED: directory to watch
-  debugOutput: true //turn on verbose output logging
-  });
+      dirToWatch: master, //REQUIRED: directory to watch
+      debugOutput: false, //turn on verbose output logging
+      directoryFilter: ['!*modules', "!.git"],
+      fileFilter: ['!*.DS_Store']
+    });
 ```
+###[Filter Syntax](https://github.com/thlorenz/readdirp#filters)
 
 ###beginWatch
 ```javascript
