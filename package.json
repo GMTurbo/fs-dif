@@ -25,6 +25,7 @@
   "homepage": "https://github.com/GMTurbo/fs-dif",
   "dependencies": {
     "lodash": "^2.4.1",
+    "minimatch": "^1.0.0",
     "mkdirp": "^0.5.0",
     "readdirp": "^1.1.0",
     "stream-bouncer": "0.0.3",
